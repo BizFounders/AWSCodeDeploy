@@ -7,10 +7,11 @@ phases:
   
   build:
     - echo Build started on `date`
+    - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
     - echo Building the Docker image...
-    - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
+    - docker build -t $IMAGE_REPO_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION .
   
   post-build:
     - echo Build completed on `date`
     - echo Pushing the Docker image...
-    - docker push $IMAGE_REPO_NAME:$IMAGE_TAG
+    - docker push $IMAGE_REPO_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION
