@@ -11,6 +11,7 @@ func HelloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Hello, all!")
 }
 
+// Server
 func main() {
 	// Register the HelloHandler for all HTTP requests
 	http.HandleFunc("/", HelloHandler)
